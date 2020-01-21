@@ -6,13 +6,12 @@
 /*   By: asbai-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 09:24:24 by asbai-el          #+#    #+#             */
-/*   Updated: 2020/01/17 12:04:14 by asbai-el         ###   ########.fr       */
+/*   Updated: 2020/01/17 14:05:16 by asbai-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-#define  BUFFER_SIZE 99999
 # include <unistd.h>
 # include <stdlib.h>
 

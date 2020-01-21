@@ -6,15 +6,17 @@
 /*   By: asbai-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 09:28:49 by asbai-el          #+#    #+#             */
-/*   Updated: 2020/01/17 12:05:31 by asbai-el         ###   ########.fr       */
+/*   Updated: 2020/01/19 20:10:16 by asbai-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 static int			malloc_file_content(char **file_content, int *j, int fd,
-										char ***line)
+		char ***line)
 {
+	if (*line == NULL)
+		return (-1);
 	if (!(**line = ft_strdup("")))
 		return (-1);
 	*j = 1;
@@ -45,10 +47,10 @@ static int			read_file_content(int fd, char **file_content,
 	return (*j);
 }
 
-void    free_NULL(char **str)
+void				free_null(char **str)
 {
-    free(*str);
-    *str = NULL;
+	free(*str);
+	*str = NULL;
 }
 
 int					get_next_line(int fd, char **line)
@@ -71,11 +73,11 @@ int					get_next_line(int fd, char **line)
 			*line = ft_strcharjoin(line, (file_content + i), &i);
 	}
 	file_content = ft_memccpy(file_content, file_content + i + 1, '\n',
-								ft_strlen(file_content));
+			ft_strlen(file_content));
 	if (j <= 0 || (file_content[0] == '\0' && *line[0] == '\0' && j == 0))
 	{
-		free_NULL(&file_content);
-		return (j == 0 ||  *line[0] == '\0') ? 0 : -1;
+		free_null(&file_content);
+		return (j == 0 || *line[0] == '\0') ? 0 : -1;
 	}
 	return (1);
 }
